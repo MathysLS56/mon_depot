@@ -11,9 +11,12 @@
 /* Créer une socket */
 void creer_socket(char* adresseIP, int port, SOCK* sock) {
 	
-	/*A COMPLETER*/
+	sock->sockfd = socket(AF_INET,SOCK_DGRAM,0);
+	if (sock == -1){
 	traiter_erreur(__FUNCTION__);
-	/*A COMPLETER*/
+	sock->addr.sin_family = AF_INET;
+    	sock->addr.sin_port = htons(port);
+    	if (inet_pton(AF_INET, adresseIP, &sock->addr.sin_addr) <= 0) {
 }
 
 /* Attacher une socket */
