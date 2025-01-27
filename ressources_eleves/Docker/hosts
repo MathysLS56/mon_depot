@@ -1,0 +1,10 @@
+all:
+  children:
+    machine_de_test:
+      hosts:
+        172.0.0.1:
+          ansible_connection: ssh
+          ansible_ssh_user: admin
+        10.0.20.9:
+          ansible_connection: ssh
+          ansible_ssh_user: admin
