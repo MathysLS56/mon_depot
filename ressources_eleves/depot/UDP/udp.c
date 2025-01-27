@@ -19,26 +19,26 @@ void creer_socket(char* adresseIP, int port, SOCK* sock) {
     	if (inet_pton(AF_INET, adresseIP, &sock->addr.sin_addr) <= 0) {
 }
 
-/* Attacher une socket */
+
 void attacher_socket(SOCK* sock) {
-	/*A COMPLETER*/
+	if (bind(sock->sockfd, (struct sockaddr*)&sock->addr, sizeof(sock->addr)) < 0) {
 	traiter_erreur(__FUNCTION__);
 }
 
-/*Initialiser la structure adresse client */
 void init_addr(SOCK* sock) {
-	/*A COMPLETER*/
+	memset(&sock->addr, 0, sizeof(sock->addr));
+    	sock->addr.sin_family = AF_INET;
 }
 
 /* Dimensionner la file d'attente d'une socket */
 void dimensionner_file_attente_socket(int taille, SOCK* sock) {
-	/*A COMPLETER*/
+    if (listen(sock->sockfd, taille) < 0) 
 	traiter_erreur(__FUNCTION__);
 }
 
 /* Recevoir un message */
 void recevoir_message(SOCK* dst, char * buffer) {
-	/*A COMPLETER*/	
+	
 	traiter_erreur(__FUNCTION__);
 }
 
