@@ -5,7 +5,7 @@ services:
     image: jenkins/jenkins:lts
     ports:
        - 8080:8080
-       - 2000:2000   
+       - 5000:5000   
   agent:
     container_name: agent
     build:
