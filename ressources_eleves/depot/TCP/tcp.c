@@ -26,7 +26,7 @@ void creer_socket(char* adresseIP, int port, SOCK* sock) {
     sock->adresse.sin_port = htons(port);
     sock->adresse.sin_addr.s_addr = inet_addr(adresseIP);
     sock->longueur_adresse = sizeof(sock->adresse);
->>>>>>> 6f32960 (cr??ation serveur et client udp)
+>>>>>>> 6f32960 (cr??ation serveur et client tcp)
 }
 
 /* Attacher une socket */
@@ -40,7 +40,7 @@ void attacher_socket(SOCK* sock) {
 	if (verif==-1){	
 		traiter_erreur(__FUNCTION__);
 	}
->>>>>>> 6f32960 (cr??ation serveur et client udp)
+>>>>>>> 6f32960 (cr??ation serveur et client tcp)
 }
 
 /*Initialiser la structure adresse client */
@@ -51,7 +51,7 @@ void init_addr(SOCK* sock) {
     sock->adresse.sin_family = AF_INET;
     sock->adresse.sin_addr.s_addr = INADDR_ANY; 
     sock->longueur_adresse = sizeof(sock->adresse);
->>>>>>> 6f32960 (cr??ation serveur et client udp)
+>>>>>>> 6f32960 (cr??ation serveur et client tcp)
 }
 
 /* Dimensionner la file d'attente d'une socket */
@@ -65,7 +65,7 @@ void dimensionner_file_attente_socket(int taille, SOCK* sock) {
 	if (verif==-1){	
 		traiter_erreur(__FUNCTION__);
 	}
->>>>>>> 6f32960 (cr??ation serveur et client udp)
+>>>>>>> 6f32960 (cr??ation serveur et client tcp)
 }
 
 /* Recevoir un message */
@@ -80,7 +80,7 @@ void recevoir_message(SOCK* dst, char * buffer) {
 		traiter_erreur(__FUNCTION__);
 	}
 	
->>>>>>> 6f32960 (cr??ation serveur et client udp)
+>>>>>>> 6f32960 (cr??ation serveur et client tcp)
 }
 
 /* Émettre un message */
@@ -102,6 +102,6 @@ void fermer_connexion(SOCK* sock) {
 /* Fermer la connexion */
 void fermer_connexion(SOCK* sock) {
 	close(sock->sockfd);
->>>>>>> 6f32960 (cr??ation serveur et client udp)
+>>>>>>> 6f32960 (cr??ation serveur et client tcp)
 	traiter_erreur(__FUNCTION__);
 }
