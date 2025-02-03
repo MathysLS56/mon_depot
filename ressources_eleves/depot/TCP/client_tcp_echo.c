@@ -11,6 +11,7 @@ void traiter_commande(int argc, char** argv, const char* usage) {
     if (argc != 5) {
         printf(stderr, "%s\n", usage);
     }
+
 int main(int argc, char** argv) {
 	
 	
