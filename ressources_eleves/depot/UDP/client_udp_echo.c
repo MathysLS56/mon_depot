@@ -15,8 +15,12 @@ void traiter_commande(int argc, char** argv, const char* usage) {
 
     // Validate IP address
     struct sockaddr_in sa;
-    if (inet_pton(AF_INET, argv[1], &(sa.sin_addr)) != 1) {
-        fprintf(stderr, "%s\n", usage);
+    int result = inet_pton(AF_INET, argv[1], &(sa.sin_addr));
+    if (result == 0) {
+        fprintf(stderr, "Invalid IP address format.\n%s\n", usage);
+        exit(EXIT_FAILURE);
+    } else if (result < 0) {
+        perror("inet_pton");
         exit(EXIT_FAILURE);
     }
 
@@ -49,4 +53,3 @@ int main(int argc, char** argv) {
 
     exit(0);
 }
-
