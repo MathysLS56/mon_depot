@@ -18,12 +18,7 @@ int main(int argc, char** argv) {
 //----------------prototype socket
 
 int socket(int domain, int type, int protocol);
-
 int close(int sock);
-
-int bind(int sock, const struct sockaddr *address, socklen_t
-addr_len);
-
 ssize_t sendto(int sock, const void *buf, size_t len, int flags,
 const struct sockaddr *dest_addr, socklen_t addr_len);
 ssize_t recvfrom(int sock, void *buf, size_t len, int flags,
@@ -37,22 +32,6 @@ sock = socket(AF_INET, SOCK_DGRAM, 0);
 if (sock == -1){
 	printf(« Echec creation socket\n »);
 	exit(1);}
-	
-//--------------------Bind
-...
-struct sockaddr_in addr_srv ;
-...
-// on initialise la structure d'adresse en la remplissant de '0'
-bzero(&addr_srv, sizeof(addr_srv));
-// on initialise la structure d'adresse avec les valeurs souhaitées
-addr_srv.sin_family = AF_INET ;
-addr_srv.sin_port = htons(5896) ;
-addr_srv.sin_addr.s_addr = htonl(INADDR_ANY) ;
-// on appelle la fonction (on suppose que « sock » est initialisée)
-if (bind (sock, (struct sockaddr*) &addr_srv, sizeof(addr_srv)) == -1) {
-printf(« Echec attachement\n ») ;
-exit(1) ;
-}
 
 //--------------------envoi
 
@@ -100,5 +79,3 @@ close(sock);
 
 	exit(0);
 }
-
-
